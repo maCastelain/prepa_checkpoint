@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Edit an user{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/staff.css">
+{% endblock %}
+
+{% block header %}
+    {% include "Magasins/_staffNavbar.html.twig" %}
+{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Features -->
+        <div class="row text-center">
+            <div class="col mt-2 mb-5">
+                <h1>Editer un magasin</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-2 mb-5">
+                <form method="POST" class="text-center">
+                    <input type="hidden" value="{{ magasin.id }}" name="id">
+                    <label for="name">Nom :</label>
+                    <input type="text" name="name" id="name" max="16" min="3" required value="{{ magasin.name }}">
+                    <br>
+                    <label for="content">Contenu :</label>
+                    <input type="text" name="content" id="content" max="32" min="3" required value="{{ magasin.content }}">
+                    <br>
+                    <button type="submit" class="btn btn-info btn-xs">Editer le magasin</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

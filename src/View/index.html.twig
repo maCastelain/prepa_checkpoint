@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block stylesheet %}
+{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Features -->
+        <div class="row justify-content-center">
+            <h1>Bienvenue dans ce checkpoint !</h1>
+        </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Contenu</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for magasin in magasins %}
+                    <tr>
+                        <td>{{ magasin.id }}</td>
+                        <td><pre>{{ magasin.name }}</pre></td>
+                        <td><pre>{{ magasin.content }}</pre></td>
+                        <td><a href="/magasin/edit/{{ magasin.id }}"><button type="button" class="btn btn-warning">Modifier</button></a></td>
+                        <td><a href="/magasin/delete/{{ magasin.id }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <ul>
+                    <li><a href="/add">Ajout d'un magasin</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
